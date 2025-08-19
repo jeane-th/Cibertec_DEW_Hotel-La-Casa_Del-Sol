@@ -19,7 +19,7 @@ export const Footer = () => {
           </div>
         </div>
         <div className="footer-fondo">
-          <p>&copy; 2025 Hotel Paraíso</p>
+          <p>&copy; 2025 Hotel La Casa del Sol</p>
         </div>
       </div>
     </footer>
