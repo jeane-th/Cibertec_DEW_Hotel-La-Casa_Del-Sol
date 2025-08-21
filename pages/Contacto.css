@@ -1,0 +1,82 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+.pagina-titulo {
+    text-align: center;
+    margin: 48px;
+}
+
+
+/* Página Contacto - Estilos de la página */
+
+.contacto-diseño {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 48px;
+}
+
+.contacto-form-container, .contacto-info-container {
+    flex: 1 1 400px;
+    background-color: var(--surface-color);
+    padding: 32px;
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.contacto-form-container h2, .contacto-info-container h2 {
+    font-size: 32px;
+    margin-bottom: 24px;
+    color: var(--primary-color);
+}
+
+.formulario-grupo {
+    margin-bottom: 20px;
+}
+
+.formulario-grupo label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 700;
+}
+
+.formulario-grupo input, .formulario-grupo textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: var(--border-radius);
+    font-size: 16px;
+    font-family: 'Roboto', sans-serif;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.formulario-grupo input:focus, .formulario-grupo textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 5px rgba(10, 77, 104, 0.5);
+}
+
+.formulario-grupo textarea {
+    resize: vertical;
+}
+
+.contacto-form-container .btn {
+    width: 100%;
+    font-size: 18px;
+}
+
+
+.contacto-info-container h3 {
+    font-size: 24px;
+    margin-bottom: 16px;
+    color: var(--primary-color);
+}
+
+.contacto-info-container p {
+    font-size: 18px;
+    margin-bottom: 12px;
+    line-height: 1.8;
+}
