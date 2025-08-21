@@ -1,29 +1,33 @@
-import { Footer } from './assets/components/Footer'
-import { Header } from './assets/components/Header'
-import { BarraNavegacion } from './assets/components/BarraNavegacion'
-import { SobreNosotros } from './assets/components/SobreNosotros'
-import { Servicios } from './assets/components/Servicios'
-import { Galeria } from './assets/components/Galeria'
-import { Testimonios } from './assets/components/Testimonios'
-import { SectionHabitaciones } from './assets/components/SectionHabitaciones'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { BarraNavegacion } from './components/BarraNavegacion'
+import { Footer } from './components/Footer'
 
+import Home from './pages/Home'
+import Habitaciones from './pages/Habitaciones'
+import Reservar from './pages/Reservar'
+import Contacto from './pages/Contacto'
+import Galeria from './pages/Galeria'
 
 function App() {
 
+
+
   return (
-    <>
+
+    <BrowserRouter>
       <BarraNavegacion />
-      <main>
-        <Header />
-        <SobreNosotros />
-        <SectionHabitaciones />
-        <Servicios />
-        <Galeria />
-        <Testimonios />
-      </main>
+      <Routes>
+        <Route path='/' element={<Home />}/>
+        <Route path='/Habitaciones' element={<Habitaciones />} />
+        <Route path='/Galeria' element={<Galeria />} />
+        <Route path='/Reservar' element={<Reservar />} />
+        <Route path='/Contacto' element={<Contacto />} />
+
+        <Route path='*' element={<Home />} />
+      </Routes>
       <Footer />
 
-    </>
+    </BrowserRouter>
   )
 }
 
