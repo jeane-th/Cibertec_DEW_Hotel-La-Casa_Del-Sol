@@ -69,6 +69,7 @@ a {
 .seccion {
   padding-top: var(--espaciado-lg);
   padding-bottom: var(--espaciado-lg);
+  background-color: var(--color-blanco);
 }
 
 .fondo-claro {
