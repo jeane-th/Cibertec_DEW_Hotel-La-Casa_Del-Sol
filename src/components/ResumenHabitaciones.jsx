@@ -6,6 +6,7 @@ import imgSimple from '../assets/images/Habitación-simple.png';
 import imgDobleStandard from '../assets/images/Habitación-doble-standard.png';
 import imgEjecutivaDoble from '../assets/images/Habitación-ejecutiva-doble.png';
 import imgEjecutivaKing from '../assets/images/Habitación-ejecutiva-king.png';
+import { Link } from 'react-router-dom';
 
 // Array con la información detallada de todas las habitaciones
 const listaHabitaciones = [
@@ -58,7 +59,7 @@ export const ResumenHabitaciones = () => {
               <span>{habitacionPrincipal.capacidad} personas</span>
             </div>
             <p className="descripcion-detalle">{habitacionPrincipal.desc}</p>
-            <a href="#" className="btn">Reservar</a>
+            <Link to="/Reservar" className="btn">Reservar</Link>
           </div>
 
           {/* Columna Derecha: Galería estática */}

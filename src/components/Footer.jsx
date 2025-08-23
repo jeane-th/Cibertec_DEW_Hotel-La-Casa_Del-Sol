@@ -21,7 +21,7 @@ export const Footer = () => {
                 <p><strong>Dirección:</strong> Av. Carlos Izaguirre 233, Independencia 15311</p>
                 <p><strong>Teléfono</strong> +51 916325859</p>
                 <p><strong>Teléfono / WhatsApp:</strong> <a href="https://wa.me/51916325859" target="_blank">+51 916325859</a></p>
-            <p><strong>Email:</strong> <a href="mailto:contacto@hotelparaiso.com">contacto@hotelparaiso.com</a></p>
+            <p><strong>Email:</strong> <a href="mailto:contacto@lacasadelsol.com">contacto@lacasadelsol.com</a></p>
           </div>
           <div className="footer-redes">
             <ul>
@@ -37,7 +37,7 @@ export const Footer = () => {
           </div>
         </div>
         <div className="footer-fondo">
-          <p>&copy; 2025 Hotel Paraíso</p>
+          <p>&copy; 2025 La Casa del Sol</p>
         </div>
       </div>
     </footer>

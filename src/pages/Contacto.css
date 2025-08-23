@@ -4,6 +4,15 @@
     box-sizing: border-box;
 }
 
+body {
+  background-color: #f8f9fa;
+}
+
+.contacto-form-container, 
+.contacto-info-container {
+  background-color: #fff;
+}
+
 
 .pagina-titulo {
     text-align: center;
@@ -11,20 +20,21 @@
 }
 
 
-/* Página Contacto - Estilos de la página */
 
 .contacto-diseño {
     display: flex;
     flex-wrap: wrap;
     gap: 48px;
+    align-items: flex-start;
 }
+
 
 .contacto-form-container, .contacto-info-container {
     flex: 1 1 400px;
-    background-color: var(--surface-color);
     padding: 32px;
     border-radius: var(--border-radius);
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    margin-bottom: 30px;
 }
 
 .contacto-form-container h2, .contacto-info-container h2 {
@@ -32,6 +42,11 @@
     margin-bottom: 24px;
     color: var(--primary-color);
 }
+
+.pagina-titulo h1 {
+    font-size: 40px;
+}
+
 
 .formulario-grupo {
     margin-bottom: 20px;
