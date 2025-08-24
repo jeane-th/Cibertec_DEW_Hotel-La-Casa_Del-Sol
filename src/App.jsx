@@ -14,8 +14,8 @@ function App() {
 
   return (
 
-    <BrowserRouter>
-      <BarraNavegacion />
+    <BrowserRouter basename="/Cibertec_DEW_Hotel-La-Casa_Del-Sol">
+      <BarraNavegacion/>
       <Routes>
         <Route path='/' element={<Home />}/>
         <Route path='/Habitaciones' element={<Habitaciones />} />
