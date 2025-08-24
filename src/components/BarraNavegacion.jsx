@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import logo from '../assets/images/Logo.png'
+import logo from '../assets/images/Logo-header.jpeg'
 import { Link } from 'react-router-dom';
 
 export const BarraNavegacion = () => {
