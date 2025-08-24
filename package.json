@@ -3,6 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "homepage": "https://jeane-th.github.io/Cibertec_DEW_Hotel-La-Casa_Del-Sol",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
