@@ -1,97 +1,128 @@
+
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-body {
-  background-color: #f8f9fa;
-}
-
-.contacto-form-container, 
-.contacto-info-container {
+/* Formulario */
+form {
   background-color: #fff;
+  padding: 30px 40px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  width: 600px;
+  margin: 20px  auto;
+}
+
+form h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #333;
+}
+
+/* Campos de entrada */
+form div {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  margin-bottom: 6px;
+  font-weight: 600;
+  color: #555;
+}
+
+label span {
+  color: red;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border 0.3s, box-shadow 0.3s;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+textarea:focus {
+  border-color: #059669;
+  box-shadow: 0 0 5px rgba(38, 145, 118, 0.5);
+  outline: none;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 80px;
+  max-height: 200px;
+}
+
+/* Checkbox */
+input[type="checkbox"] {
+  width: auto;
+  margin-top: 8px;
+  transform: scale(1.2);
+}
+
+/* Errores */
+.validacion {
+  font-size: 0.875rem;
+  margin-top: 5px;
+  color: #e74c3c;
+}
+
+.checkbox {
+  display: flex;
+  gap: 10px; /* espacio entre checkbox y texto */
+  cursor: pointer;
+  font-weight: 500;
+  color: #555;
+}
+
+.checkbox input[type="checkbox"] {
+  margin: 0; /* elimina margen predeterminado */
+  vertical-align: middle; /* asegura alineación vertical */
 }
 
 
-.pagina-titulo {
-    text-align: center;
-    margin: 48px;
+/* Botón */
+button {
+  width: 100%;
+  padding: 12px;
+  background-color: #059669;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
 
-
-
-.contacto-diseño {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 48px;
-    align-items: flex-start;
+button:hover {
+  background-color: #357ab8;
 }
 
+/* Responsivo */
+@media (max-width: 600px) {
+  form {
+    padding: 25px 20px;
+  }
 
-.contacto-form-container, .contacto-info-container {
-    flex: 1 1 400px;
-    padding: 32px;
-    border-radius: var(--border-radius);
-    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-    margin-bottom: 30px;
-}
+  input[type="text"],
+  input[type="email"],
+  textarea {
+    font-size: 0.95rem;
+  }
 
-.contacto-form-container h2, .contacto-info-container h2 {
-    font-size: 32px;
-    margin-bottom: 24px;
-    color: var(--primary-color);
-}
-
-.pagina-titulo h1 {
-    font-size: 40px;
-}
-
-
-.formulario-grupo {
-    margin-bottom: 20px;
-}
-
-.formulario-grupo label {
-    display: block;
-    margin-bottom: 8px;
-    font-weight: 700;
-}
-
-.formulario-grupo input, .formulario-grupo textarea {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: var(--border-radius);
-    font-size: 16px;
-    font-family: 'Roboto', sans-serif;
-    transition: border-color 0.3s, box-shadow 0.3s;
-}
-
-.formulario-grupo input:focus, .formulario-grupo textarea:focus {
-    outline: none;
-    border-color: var(--primary-color);
-    box-shadow: 0 0 5px rgba(10, 77, 104, 0.5);
-}
-
-.formulario-grupo textarea {
-    resize: vertical;
-}
-
-.contacto-form-container .btn {
-    width: 100%;
-    font-size: 18px;
-}
-
-
-.contacto-info-container h3 {
-    font-size: 24px;
-    margin-bottom: 16px;
-    color: var(--primary-color);
-}
-
-.contacto-info-container p {
-    font-size: 18px;
-    margin-bottom: 12px;
-    line-height: 1.8;
+  button {
+    font-size: 0.95rem;
+  }
 }
