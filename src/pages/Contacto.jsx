@@ -1,78 +1,147 @@
 import React from 'react';
 import './Contacto.css'
+import { useForm } from 'react-hook-form'
+import { yupResolver } from '@hookform/resolvers/yup';
+
+import * as yup from 'yup';
+const schema = yup.object().shape({
+  // Restricciones
+
+  nombre: yup
+    .string()
+    .required("El nombre es obligatorio")
+    .matches(/^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+$/, "El nombre solo puede contener letras")
+    .min(3, "El nombre debe tener al menos 3 caracteres"),
+
+  apellido1: yup
+    .string()
+    .required("El nombre es obligatorio")
+    .matches(/^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+$/, "El apellido solo puede contener letras")
+    .min(3, "El nombre debe tener al menos 3 caracteres"),
+
+  apellido2: yup
+    .string()
+    .optional() // o .notRequired()
+    .matches(/^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]*$/, "El apellido solo puede contener letras"),
+
+  dni: yup
+    .string()
+    .required("El DNI es obligatorio")
+    .test("solo_numeros", "Solo se permiten números", value => /^\d*$/.test(value))
+    .test("longitud", "El teléfono debe tener 9 dígitos", value => !value || value.length === 8),
+
+  telefono: yup
+    .string()
+    .required("El teléfono es obligatorio")
+    .test("solo_numeros", "Solo se permiten números", value => /^\d*$/.test(value))
+    .test("longitud", "El teléfono debe tener 9 dígitos", value => !value || value.length === 9),
+
+  email: yup
+    .string()
+    .required("El email es obligatorio")
+    .email("Formato de email inválido"),
+
+  mensaje: yup
+    .string()
+    .optional()
+    .max(500, "El mensaje no puede superar los 500 caracteres"),
+
+  checkbox: yup
+    .boolean()
+    .oneOf([true], "Debe autorizar la comunicación por whatsapp"),
+
+});
 
 export const Contacto = () => {
+  const { register, handleSubmit, formState: { errors } } = useForm({ resolver: yupResolver(schema), mode: "onChange" })
+
+  const onData = (data) => {
+    console.log(data)
+  }
+
+
   return (
     <>
-      <main className="container">
-        <div className="pagina-titulo">
-          <h1>Ponte en Contacto con Nosotros</h1>
+      <form onSubmit={handleSubmit(onData)}>
+
+
+        <h2>Contactenos</h2>
+        <div>
+          <label>Nombre <span className='validacion'>*</span> </label>
+          <input
+            type="text"
+            name="nombre"
+            {...register('nombre')}
+          />
+          <p className='validacion'>{errors.nombre?.message}</p>
+        </div>
+        <div>
+          <label>Apellido 1 <span className='validacion'>*</span> </label>
+          <input
+            type="text"
+            name="apellido1"
+            {...register('apellido1')}
+          />
+          <p className='validacion'>{errors.apellido1?.message}</p>
+        </div>
+        <div>
+
+          <label>Apellido 2 <span className='validacion'></span> </label>
+          <input
+            type="text"
+            name="apellido2"
+            {...register('apellido2')}
+          />
+          <p className='validacion'>{errors.apellido2?.message}</p>
+        </div>
+        <div>
+          <label>DNI <span className='validacion'>*</span> </label>
+          <input
+            type="text"
+            name="dni"
+            {...register('dni')}
+          />
+          <p className='validacion'>{errors.dni?.message}</p>
+        </div>
+        <div>
+          <label>Telefono <span className='validacion'>*</span> </label>
+          <input
+            type="text"
+            name="telefono"
+            {...register('telefono')}
+          />
+          <p className='validacion'>{errors.telefono?.message}</p>
+        </div>
+        <div>
+          <label>email <span className='validacion'>*</span> </label>
+          <input
+            type="email"
+            name="email"
+            {...register('email')}
+          />
+          <p className='validacion'>{errors.email?.message}</p>
+        </div>
+        <div>
+          <label>Dejamos tu mensaje </label>
+          <textarea
+            {...register("mensaje")}
+          ></textarea>
+          <p className='validacion'>{errors.mensaje?.message}</p>
         </div>
 
-        <div className="contacto-diseño">
-          <div className="contacto-form-container">
-            <h2> 👋 Envíanos un mensaje</h2>
-
-            <form action="#">
-              <div className="formulario-grupo">
-                <label htmlFor="name">Nombre Completo</label>
-                <input type="text" id="name" name="name" required />
-              </div>
-              <div className="formulario-grupo">
-                <label htmlFor="email">Correo Electrónico</label>
-                <input type="email" id="email" name="email" required />
-              </div>
-              <div className="formulario-grupo">
-                <label htmlFor="subject">Asunto</label>
-                <input type="text" id="subject" name="subject" required />
-              </div>
-              <div className="formulario-grupo">
-                <label htmlFor="message">Mensaje</label>
-                <textarea id="message" name="message" rows="6" required></textarea>
-              </div>
-              <button type="submit" className="btn btn-primario">
-                Enviar Mensaje
-              </button>
-            </form>
-          </div>
-
-          <div className="contacto-info-container">
-            <h2> 🌏 Nuestra ubicación</h2>
-     
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3902.955513511195!2d-77.05051658466185!3d-11.97904084282381!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105d15c898c1995%3A0xedb9a67a064f728c!2sAv.%20Carlos%20Izaguirre%20233%2C%20Independencia%2015311%2C%20Per%C3%BA!5e0!3m2!1ses-419!2spe!4v1625098901234!5m2!1ses-419!2spe"
-              width="600"
-              height="450"
-              style={{ border: 0 }}
-              allowFullScreen=""
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-            ></iframe>
-            <br />
-            <br />
-            <h3>Información Adicional</h3>
-            <p>
-              <strong>Dirección:</strong> Av. Carlos Izaguirre 233,
-              Independencia 15311
-            </p>
-            <p>
-              <strong>Teléfono</strong> +51 916325859
-            </p>
-            <p>
-              <strong>Teléfono / WhatsApp:</strong>{' '}
-              <a href="https://wa.me/51916325859" target="_blank" rel="noopener noreferrer">
-                +51 916325859
-              </a>
-            </p>
-            <p>
-              <strong>Email:</strong>{' '}
-              <a href="mailto:contacto@hotelparaiso.com">
-                contacto@hotelparaiso.com
-              </a>
-            </p>
-          </div>
+        <div className='checkbox'>
+          <label className='checkbox'>
+            <input
+              type="checkbox"
+              name='checkbox'
+              {...register("checkbox")}
+            />
+            Deseo que se comuniquen por whatsapp</label>
+          <p className='validacion'>{errors.checkbox?.message}</p>
         </div>
-      </main>
+        <button type="submit">Enviar</button>
+      </form>
+
     </>
   );
 };
