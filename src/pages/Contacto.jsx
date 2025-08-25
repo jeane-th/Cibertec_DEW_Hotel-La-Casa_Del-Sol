@@ -2,7 +2,7 @@ import React from 'react';
 import './Contacto.css'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup';
-import img1 from '../assets/images/Banner1.png';
+import img1 from '../assets/images/Banner1.jpg';
 
 import * as yup from 'yup';
 const schema = yup.object().shape({
