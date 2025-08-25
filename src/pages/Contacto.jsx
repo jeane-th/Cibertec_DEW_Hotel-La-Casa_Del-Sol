@@ -4,6 +4,37 @@ import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup';
 import img1 from '../assets/images/Banner1.jpg';
 
+// Lista de habitaciones (sin imágenes)
+const listaHabitaciones = [
+  {
+    id: 'suite-king',
+    title: 'Suite Cama King',
+    capacidad: 2,
+    desc: 'Experimenta el máximo lujo...',
+    precio: 200
+  },
+  {
+    id: 'simple',
+    title: 'Habitación Standard Simple',
+    precio: 80
+  },
+  {
+    id: 'doble-standard',
+    title: 'Habitación Doble Standard',
+    precio: 120
+  },
+  {
+    id: 'ejecutiva-doble',
+    title: 'Habitación Ejecutiva Doble',
+    precio: 150
+  },
+  {
+    id: 'ejecutiva-king',
+    title: 'Habitación Ejecutiva King',
+    precio: 180
+  }
+];
+
 import * as yup from 'yup';
 const schema = yup.object().shape({
   // Restricciones
@@ -61,13 +92,41 @@ export const Contacto = () => {
   }
 
 
+
+  /*-------------------------------------- */
+
+
+  // Estado de selección de habitaciones
+  const [habitacionesSeleccionadas, setHabitacionesSeleccionadas] = useState([]);
+
+  // Manejo de selección / deselección
+  const handleSeleccionHabitacion = (id) => {
+    setHabitacionesSeleccionadas(prev =>
+      prev.includes(id)
+        ? prev.filter(habId => habId !== id)
+        : [...prev, id]
+    );
+  };
+
+
+  // Cálculo automático del total
+  const totalPrecio = useMemo(() => {
+    return habitacionesSeleccionadas.reduce((total, id) => {
+      const hab = listaHabitaciones.find(h => h.id === id);
+      return total + (hab?.precio || 0);
+    }, 0);
+  }, [habitacionesSeleccionadas]);
+
+
+  //------------------------------
+
   return (
     <>
       <div className='contacto-contenedor'>
         <div className='imagen-contacto'>
           <img className="imagen" src={img1} alt="" />
         </div>
-        <form>
+        <form onSubmit={handleSubmit(onData)}>
           <h2>Contactenos</h2>
           <div>
             <label>Nombre <span className='validacion'>*</span> </label>
@@ -88,7 +147,6 @@ export const Contacto = () => {
             <p className='validacion'>{errors.apellido1?.message}</p>
           </div>
           <div>
-
             <label>Apellido 2 <span className='validacion'></span> </label>
             <input
               type="text"
@@ -125,12 +183,31 @@ export const Contacto = () => {
             <p className='validacion'>{errors.email?.message}</p>
           </div>
           <div>
-            <label>Dejamos tu mensaje </label>
+            <label>Comentarios adicionales</label>
             <textarea
               {...register("mensaje")}
             ></textarea>
             <p className='validacion'>{errors.mensaje?.message}</p>
           </div>
+
+          {/* Selección de habitaciones */}
+          <div>
+            <h3>Selecciona tus habitaciones</h3>
+            {listaHabitaciones.map((habitacion) => (
+              <div key={habitacion.id}>
+                <label>
+                  <input
+                    type="checkbox"
+                    checked={habitacionesSeleccionadas.includes(habitacion.id)}
+                    onChange={() => handleSeleccionHabitacion(habitacion.id)}
+                  />
+                  {habitacion.title} - ${habitacion.precio}
+                </label>
+              </div>
+            ))}
+            <p><strong>Total:</strong> ${totalPrecio}</p>
+          </div>
+
 
           <div className='checkbox'>
             <label className='checkbox'>

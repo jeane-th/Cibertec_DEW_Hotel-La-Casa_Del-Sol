@@ -14,6 +14,7 @@ import img10 from "../assets/images/piscinaNocturna.png";
 import img11 from "../assets/images/habitacionFamiliar.png";
 import img12 from "../assets/images/masajesSauna.png";
 
+
 const categorias = [
   "Todos",
   "Habitaciones",
