@@ -2,6 +2,7 @@ import React from 'react';
 import './Contacto.css'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup';
+import img1 from '../assets/images/Banner1.png';
 
 import * as yup from 'yup';
 const schema = yup.object().shape({
@@ -64,7 +65,7 @@ export const Contacto = () => {
     <>
       <div className='contacto-contenedor'>
         <div className='imagen-contacto'>
-          <img className="imagen" src="./src/assets/images/Banner1.jpg" alt="" />
+          <img className="imagen" src={img1} alt="" />
         </div>
         <form>
           <h2>Contactenos</h2>
