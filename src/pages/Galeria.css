@@ -64,7 +64,7 @@
 }
 
 .filtro-btn.activo {
-  background: #0077b6;
+  background: #00b600;
   color: white;
   box-shadow: 0 4px 10px rgba(0, 119, 182, 0.4);
 }
@@ -127,3 +127,4 @@
   height: 200px;
   border-radius: 10px;
 }
+
