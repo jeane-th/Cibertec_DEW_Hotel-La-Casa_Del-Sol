@@ -43,7 +43,6 @@
 .galeria-filtros {
   display: flex;
   justify-content: center;
-  flex-wrap: wrap;
   margin: 2rem 0;
   gap: 10px;
 }
