@@ -219,7 +219,7 @@ export const Contacto = () => {
               Deseo que se comuniquen por whatsapp</label>
             <p className='validacion'>{errors.checkbox?.message}</p>
           </div>
-          <button type="submit">Enviar</button>
+          <button className='btnContacto' type="submit">Enviar</button>
         </form >
       </div>
     </>
