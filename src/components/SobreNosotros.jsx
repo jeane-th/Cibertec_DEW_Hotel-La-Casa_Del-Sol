@@ -1,4 +1,5 @@
 import React from 'react';
+import HotelNosotros from '../assets/images/hotel-nosotros.jpg'
 
 export const SobreNosotros = () => {
   return (
@@ -8,12 +9,18 @@ export const SobreNosotros = () => {
         <div className="cuadricula-sobre-nosotros">
           <div>
             <p>
-              Bienvenidos a nuestro hotel, un oasis de tranquilidad y confort. 
-              Nuestra misión es ofrecer una experiencia inolvidable a cada uno de nuestros huéspedes, 
-              combinando un servicio excepcional con instalaciones de primera clase.
+              Bienvenidos a La Casa del Sol, un espacio pensado para ofrecer comodidad, tranquilidad y 
+              atención de calidad. Más que un hotel, somos una experiencia diseñada para que te sientas 
+              como en casa desde el primer momento.
+            </p>
+            <br />
+            <p>
+              Como parte de nuestro compromiso con la mejora continua, hemos desarrollado una plataforma 
+              digital moderna que permite a nuestros huéspedes consultar la disponibilidad de habitaciones, 
+              conocer detalles como precios y servicios, y realizar reservas en línea de forma rápida y sencilla.
             </p>
           </div>
-          <img src="https://placehold.co/500x300/000000/ffffff?text=Imagen+de+negocio" alt="Lobby del Hotel" className="imagen-sobre-nosotros" />
+          <img src={HotelNosotros} alt="Lobby del Hotel" className="imagen-sobre-nosotros" />
         </div>
       </div>
     </section>
