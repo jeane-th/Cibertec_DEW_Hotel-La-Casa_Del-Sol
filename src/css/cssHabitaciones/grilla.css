@@ -39,7 +39,6 @@ color: #EDD485;
     grid-template-rows: 1fr 1fr 1fr;
     justify-items: center;
     gap:  5rem 0;
-    padding: 5rem 10rem;
     height: 110rem;
 }
 .card{
