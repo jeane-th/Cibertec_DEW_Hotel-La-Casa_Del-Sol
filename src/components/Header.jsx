@@ -33,7 +33,6 @@ export const Header = () => {
       <div className="encabezado-contenido">
         <h1>Bienvenido a La Casa del Sol</h1>
         <p>Tu escapada de lujo te espera</p>
-        <Link to="/Reservar" className="btn btn-header">Reservar</Link>
         <Link to="/Habitaciones" className="btn btn-header">Ver Habitaciones</Link>
       </div>
     </header>

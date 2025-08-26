@@ -1,10 +1,10 @@
-.contenedor-fechas{
+.contenedor-fechas {
     width: 30vw;
-    
+
     background-color: var(--color-fondo-claro);
-    position: fixed;     
-    top: 200px;           
-    left: 50%;            
+    position: fixed;
+    top: 200px;
+    left: 50%;
     transform: translateX(-50%);
     border-radius: 20px;
     z-index: 1002;
@@ -14,26 +14,28 @@
     justify-content: space-between;
     padding: 1rem 2rem 2rem 2rem;
 
-    
+
 }
 
-.cerrar{
+.cerrar {
     width: 100%;
     display: flex;
     justify-content: flex-end;
 }
 
-.fechas-header{
+.fechas-header {
     border-bottom: 2px solid rgb(185, 185, 185);
     width: 90%;
     height: 3rem;
     text-align: center;
 }
-.contenedor-calendario{
+
+.contenedor-calendario {
     height: 10rem;
-    
+
 }
-.calendario-fechas{
+
+.calendario-fechas {
     display: flex;
     gap: 5rem;
     height: 3rem;
@@ -41,17 +43,22 @@
     justify-content: center;
     margin-top: 10px;
 }
-.calendario-fechas>input{
+
+.calendario-fechas>input {
     border-radius: 10px;
     width: 9rem;
     font-size: 1.1rem;
 }
-.botonesFecha{
+
+.botonesFecha {
     display: flex;
     gap: 2rem;
     width: 50%;
+    justify-content: space-between;
+    padding-top: 10px;
 }
-.botonesFecha>input{
+
+.botonesFecha>input {
     width: 5rem;
     height: 2rem;
     border-radius: 10px;
@@ -59,58 +66,59 @@
     background-color: #EDD485;
 }
 
-.filtroBlurr{
+.filtroBlurr {
     position: fixed;
     top: 0;
     width: 100vw;
     height: 100vh;
-    
+
     z-index: 1001;
-    backdrop-filter: blur(6px);   
-    background: rgba(0, 0, 0, 0.3); 
+    backdrop-filter: blur(6px);
+    background: rgba(0, 0, 0, 0.3);
 }
 
-.btnhover:hover{
+.btnhover:hover {
     cursor: pointer;
 }
 
 /********contador*********/
 
-.contenedor-contador{
-    width: 25vw;
-    
+.contenedor-contador {
+    width: 500px;
+
 }
-.titulos-indicador{
+
+.titulos-indicador {
     display: flex;
     gap: 2rem;
 }
 
-.cont-titulos{
+.cont-titulos {
     display: flex;
     width: 52%;
- 
+
     justify-content: space-between;
 }
 
-.cont-adultos-niños{
+.cont-adultos-niños {
     display: flex;
-    
+
     gap: 1rem;
 }
 
-.contador-habitacion{
-    border-bottom: 1px solid ;
+.contador-habitacion {
+    border-bottom: 1px solid;
     border-top: 1px solid;
     display: flex;
-    
+
     width: 90%;
     gap: 0.5rem;
     padding: 10px 0;
     margin: 0 100px;
 }
-.contadores{
+
+.contadores {
     display: flex;
-    
+
     gap: 1rem;
 }
-

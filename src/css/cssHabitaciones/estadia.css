@@ -36,16 +36,17 @@
     border: none;
     
 }
-
-
 .btnEstadia{
     height: 3rem;
     width: 15rem;
     border-radius: 25px;
     background-color: #16130a;
+    color: #16130a;
     font-size: 1rem;
     transition: all 0.3s ease ;
-    
+    display: flex;
+    align-items: center;
+    justify-content: center;
     
 }
 .btnEstadia:hover{

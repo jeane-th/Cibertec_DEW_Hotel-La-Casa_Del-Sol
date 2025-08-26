@@ -53,7 +53,6 @@ export const BarraNavegacion = () => {
             <li><Link to="/Home" className="active">Home</Link></li>
             <li><Link to="/Habitaciones" className="active">Habitaciones</Link></li>
             <li><Link to="/Galeria" className="active">Galería</Link></li>
-            <li><Link to="/Reservar" className="active">Reservar</Link></li>
             <li><Link to="/Contacto" className="active">Contacto</Link></li>
           </ul>
         </div>
