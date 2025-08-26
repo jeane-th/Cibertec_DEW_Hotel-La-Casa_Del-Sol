@@ -59,7 +59,7 @@ export const ResumenHabitaciones = () => {
               <span>{habitacionPrincipal.capacidad} personas</span>
             </div>
             <p className="descripcion-detalle">{habitacionPrincipal.desc}</p>
-            <Link to="/Reservar" className="btn">Reservar</Link>
+            <Link to="/Habitaciones" className="btn">Ver habitaciones</Link>
           </div>
 
           {/* Columna Derecha: Galería estática */}
