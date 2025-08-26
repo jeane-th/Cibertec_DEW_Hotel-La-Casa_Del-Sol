@@ -20,7 +20,7 @@ const totalNiños = habitaciones.reduce((acum, hab) => acum + hab.niños, 0);
 
      const handleConfirmarHabitaciones = (nuevasHabitaciones) => {
     setHabitaciones(nuevasHabitaciones);
-    console.log("Habitaciones confirmadas en el padre:", nuevasHabitaciones);
+    
   };
 let nroHabitaciones;
 let nroHuespedes;

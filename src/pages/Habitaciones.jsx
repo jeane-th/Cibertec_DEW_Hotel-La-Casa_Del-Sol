@@ -8,7 +8,7 @@ import { Estadia } from "../components/seccionHabitaciones/menuEstadia/Estadia"
 
 
 
-function App() {
+function Habitaciones() {
 
 
   return (
@@ -23,4 +23,4 @@ function App() {
   )
 }
 
-export default App
+export default Habitaciones
