@@ -107,7 +107,7 @@ input[type="checkbox"] {
 
 
 /* Botón */
-button {
+.btnContacto  {
   width: 100%;
   padding: 12px;
   background-color: #059669;
@@ -120,7 +120,7 @@ button {
   transition: background-color 0.3s;
 }
 
-button:hover {
+.btnContacto:hover {
   background-color: #357ab8;
 }
 

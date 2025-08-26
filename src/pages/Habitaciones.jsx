@@ -1,9 +1,26 @@
-import React from 'react'
+import { Banner } from "../components/seccionHabitaciones/banner/Banner.jsx"
 
-export const Habitaciones = () => {
+import { GrillaHabitaciones } from "../components/seccionHabitaciones/grillaHabitaciones/GrillaHabitaciones"
+
+
+import { Estadia } from "../components/seccionHabitaciones/menuEstadia/Estadia"
+
+
+
+
+function App() {
+
+
   return (
-    <div>PaginaHabitaciones</div>
+    <>
+      
+      <Banner />
+      <Estadia />
+      <GrillaHabitaciones />
+      
+      
+    </>
   )
 }
 
-export default Habitaciones
+export default App
