@@ -20,12 +20,10 @@ function App() {
         <Route path='/' element={<Home />}/>
         <Route path='/Habitaciones' element={<Habitaciones />} />
         <Route path='/Galeria' element={<Galeria />} />
-        <Route path='/Reservar' element={<Reservar />} />
         <Route path='/Contacto' element={<Contacto />} />
         <Route path='*' element={<Home />} />
       </Routes>
       <Footer />
-
     </BrowserRouter>
   )
 }
