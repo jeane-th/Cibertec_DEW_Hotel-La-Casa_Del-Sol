@@ -1,0 +1,92 @@
+
+.barraFiltro{
+    margin: 1rem auto;
+    border-top: 0.5px solid #b3adad;
+    border-bottom: 0.5px solid #b3adad;
+    width: 95%;
+    height: 8rem;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.btnFiltro{
+    height: 100%;
+    width: 20rem;
+    display: flex;
+    align-items: center;  
+    justify-content: center;
+    transition: all 0.3s ease ;
+    
+}
+
+.btnFiltro:hover{
+
+cursor: pointer;
+color: #EDD485;
+}
+.btnFiltro.activo {
+  border-bottom: 0.5rem solid #EDD485;
+  color: #EDD485;
+}
+
+
+.grilla{
+    
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr ;
+    grid-template-rows: 1fr 1fr 1fr;
+    justify-items: center;
+    gap:  5rem 0;
+    padding: 5rem 10rem;
+    height: 110rem;
+}
+.card{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 20rem;
+    height: 30rem;
+    border: 0.5px solid rgb(216, 211, 211);
+    box-shadow: 10px 10px 10px rgb(177, 175, 175);
+    
+    border-radius: 20px;
+}
+.cardImage{
+    width: 100%;
+    
+    object-fit: cover;
+    border-radius: 20px 20px 0 0;
+}
+.contCardimage{
+    height: 50%;
+}
+.cardDescription{
+    width: 80%;
+    
+    margin: 0 auto;
+    height: 40%;
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    
+    
+}
+
+.btnreservarCard{
+    background-color: #EDD485;
+    border-radius: 25px;
+    height: 4rem;
+    border: none;
+    transition: all 0.3s ease ;
+    font-size: 1rem;
+
+}
+
+.btnreservarCard:hover{
+background-color: var(--color-primario);
+cursor: pointer;
+color: azure;
+}
