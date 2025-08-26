@@ -10,7 +10,7 @@
   flex-direction: row;
 }
 
-.imagen{
+.imagen {
   width: 700px;
   height: 100%;
   object-fit: cover;
@@ -70,9 +70,8 @@ textarea:focus {
 }
 
 textarea {
-  resize: vertical;
-  min-height: 80px;
-  max-height: 200px;
+  resize: none;
+  height: 300px;
 }
 
 /* Checkbox */
@@ -107,7 +106,7 @@ input[type="checkbox"] {
 
 
 /* Botón */
-.btnContacto  {
+.btnContacto {
   width: 100%;
   padding: 12px;
   background-color: #059669;

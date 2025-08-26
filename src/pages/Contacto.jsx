@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+import React, { useState } from 'react';
 import './Contacto.css'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -91,35 +91,6 @@ export const Contacto = () => {
     console.log(data)
   }
 
-
-
-  /*-------------------------------------- */
-
-
-  // Estado de selección de habitaciones
-  const [habitacionesSeleccionadas, setHabitacionesSeleccionadas] = useState([]);
-
-  // Manejo de selección / deselección
-  const handleSeleccionHabitacion = (id) => {
-    setHabitacionesSeleccionadas(prev =>
-      prev.includes(id)
-        ? prev.filter(habId => habId !== id)
-        : [...prev, id]
-    );
-  };
-
-
-  // Cálculo automático del total
-  const totalPrecio = useMemo(() => {
-    return habitacionesSeleccionadas.reduce((total, id) => {
-      const hab = listaHabitaciones.find(h => h.id === id);
-      return total + (hab?.precio || 0);
-    }, 0);
-  }, [habitacionesSeleccionadas]);
-
-
-  //------------------------------
-
   return (
     <>
       <div className='contacto-contenedor'>
@@ -189,26 +160,6 @@ export const Contacto = () => {
             ></textarea>
             <p className='validacion'>{errors.mensaje?.message}</p>
           </div>
-
-          {/* Selección de habitaciones */}
-          <div>
-            <h3>Selecciona tus habitaciones</h3>
-            {listaHabitaciones.map((habitacion) => (
-              <div key={habitacion.id}>
-                <label>
-                  <input
-                    type="checkbox"
-                    checked={habitacionesSeleccionadas.includes(habitacion.id)}
-                    onChange={() => handleSeleccionHabitacion(habitacion.id)}
-                  />
-                  {habitacion.title} - ${habitacion.precio}
-                </label>
-              </div>
-            ))}
-            <p><strong>Total:</strong> ${totalPrecio}</p>
-          </div>
-
-
           <div className='checkbox'>
             <label className='checkbox'>
               <input
