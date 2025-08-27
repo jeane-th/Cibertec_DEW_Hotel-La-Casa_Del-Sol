@@ -2,8 +2,8 @@ import React, { useState } from 'react'
 import close from '../../../../assets/images/imgHabitaciones/imagenesEstadia/cerrar.png'
 
 
-export const RangoFechas = ({ visible1, cerrarVentana, onChangeFechas }) => {
-if (!visible1) return null; 
+export const RangoFechas = ({ visible1, cerrarVentana, modificarFechas }) => {
+if (visible1 === false) return null; 
 
 
 
@@ -11,8 +11,8 @@ const [checkIn, setCheckIn] = useState("");
 const [checkOut, setCheckOut] = useState("");
 
 const aplicarFechas = () => {
-    onChangeFechas(checkIn, checkOut); 
-    onClose(); 
+    modificarFechas(checkIn, checkOut); 
+    cerrarVentana(); 
 };  
 
 return (
@@ -32,8 +32,8 @@ return (
             <div className='contenedor-calendario'>
                 
                 <div className='calendario-fechas'>
-                    <input onChange={(e) => setCheckIn(e.target.value)} type="date" />
-                    <input onChange={(e) => setCheckOut(e.target.value)} type="date" />
+                    <input nuevaFecha={(e) => setCheckIn(e.target.value)} type="date" />
+                    <input nuevaFecha={(e) => setCheckOut(e.target.value)} type="date" />
                 </div>
                 
             </div>
@@ -41,7 +41,7 @@ return (
             <div className='botonesFecha'>
                 
                 <input className='btnhover' onClick={aplicarFechas} type="submit" value='Listo' />
-                <input className='btnhover' onClick={onClose} type="button" value="Cancelar" />
+                <input className='btnhover' onClick={cerrarVentana} type="button" value="Cancelar" />
             </div>
 
         </div>

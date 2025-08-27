@@ -5,7 +5,7 @@ import close from '../../../../assets/images/imgHabitaciones/imagenesEstadia/cer
 
 export const Contador = ({ visible2, cerrarVentana, confirmarSeleccion }) => {
 
-if (!visible2) return null; 
+if (visible2===false) return null; 
 
 const [habitaciones, setHabitaciones] = useState([{ nombre: "Habitación 1", adultos: 0, niños: 0 }]);
 
@@ -50,9 +50,9 @@ function agregarHabitacion() {
 }
 
 function confirmarHabitaciones() {
-    if (confirmarSeleccion) {
+    
       confirmarSeleccion(habitaciones);
-    }
+    
     cerrarVentana(); 
   }
 

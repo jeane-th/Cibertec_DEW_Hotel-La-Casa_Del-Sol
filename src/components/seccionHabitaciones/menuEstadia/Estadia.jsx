@@ -105,12 +105,13 @@ const meses =['Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sept','Oct','Novi
             <div className="botones">
 
               <button onClick={()=>setMostrar2(true)}  className='btnEstadia detallesReserva'>{nroHabitaciones} {label1}, {nroHuespedes} Huespedes</button>
+
               <Link onClick={()=>{sethabitacionesReservadas(nroHabitaciones); setcantidadHuespedes(nroHuespedes) }} to="/Contacto" className='btnEstadia hacerReserva'>Hacer reservacion</Link>
             </div>
         
     </div>
     
-    <RangoFechas visible1={mostrar1} cerrarVentana={() => setMostrar1(false)} onChangeFechas={(fechaCheckIn, fechaCheckOut) => {
+    <RangoFechas visible1={mostrar1} cerrarVentana={() => setMostrar1(false)} modificarFechas={(fechaCheckIn, fechaCheckOut) => {
     setFechaCheckIn(fechaCheckIn);
     setFechaCheckOut(fechaCheckOut);
   }}  />
