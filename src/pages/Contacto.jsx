@@ -104,12 +104,12 @@ export const Contacto = ({habitacionesReservadas, cantidadHuespedes}) => {
           <h2>Contactenos</h2>
           
           <div>
-            <label>Numero Habitaciones<span className='validacion'>*</span> </label>
+            <label>Numero Habitaciones<span className='validacion'></span> </label>
             <input
               type="text" placeholder={habitacionesReservadas}
               
             />
-            <label>Cantidad de Huespedes<span className='validacion'>*</span> </label>
+            <label>Cantidad de Huespedes<span className='validacion'></span> </label>
             <input
               type="text" placeholder={cantidadHuespedes}
               
