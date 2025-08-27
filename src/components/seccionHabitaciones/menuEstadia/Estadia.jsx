@@ -6,20 +6,21 @@ import '../../../css/cssHabitaciones/rangofehas.css'
 import { Contador } from './contadorHuespedes/Contador';
 import { Link } from 'react-router-dom';
 
-export const Estadia = () => {
+export const Estadia = ({sethabitacionesReservadas, setcantidadHuespedes}) => {
 
     const [mostrar1, setMostrar1] = useState(false);
     const [mostrar2, setMostrar2] = useState(false);
     const [fechaCheckIn, setFechaCheckIn] = useState('');
     const [fechaCheckOut, setFechaCheckOut] = useState('');
     const [habitaciones, setHabitaciones] = useState([]);
+    
 
 
-    const totalAdultos = habitaciones.reduce((acum, hab) => acum + hab.adultos, 0);
+const totalAdultos = habitaciones.reduce((acum, hab) => acum + hab.adultos, 0);
 const totalNiños = habitaciones.reduce((acum, hab) => acum + hab.niños, 0);
 
 
-     const handleConfirmarHabitaciones = (nuevasHabitaciones) => {
+     const confirmarHabitaciones = (nuevasHabitaciones) => {
     setHabitaciones(nuevasHabitaciones);
     
   };
@@ -104,17 +105,17 @@ const meses =['Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sept','Oct','Novi
             <div className="botones">
 
               <button onClick={()=>setMostrar2(true)}  className='btnEstadia detallesReserva'>{nroHabitaciones} {label1}, {nroHuespedes} Huespedes</button>
-              <Link to="/Contacto" className='btnEstadia hacerReserva'>Hacer reservacion</Link>
+              <Link onClick={()=>{sethabitacionesReservadas(nroHabitaciones); setcantidadHuespedes(nroHuespedes) }} to="/Contacto" className='btnEstadia hacerReserva'>Hacer reservacion</Link>
             </div>
         
     </div>
     
-    <RangoFechas visible1={mostrar1} onClose={() => setMostrar1(false)} onChangeFechas={(fechaCheckIn, fechaCheckOut) => {
+    <RangoFechas visible1={mostrar1} cerrarVentana={() => setMostrar1(false)} onChangeFechas={(fechaCheckIn, fechaCheckOut) => {
     setFechaCheckIn(fechaCheckIn);
     setFechaCheckOut(fechaCheckOut);
   }}  />
-      <Contador visible2={mostrar2} onClose={() => setMostrar2(false)}
-        onConfirm={handleConfirmarHabitaciones}  />
+      <Contador visible2={mostrar2} cerrarVentana={() => setMostrar2(false)}
+        confirmarSeleccion={confirmarHabitaciones}   />
     </>
   )
 }
