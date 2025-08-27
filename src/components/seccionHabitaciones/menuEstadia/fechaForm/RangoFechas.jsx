@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import close from '../../../../assets/images/imgHabitaciones/imagenesEstadia/cerrar.png'
 
 
-export const RangoFechas = ({ visible1, onClose, onChangeFechas }) => {
+export const RangoFechas = ({ visible1, cerrarVentana, onChangeFechas }) => {
 if (!visible1) return null; 
 
 
@@ -23,7 +23,7 @@ return (
         <div className='contenedor-fechas'>
 
             <div className='cerrar'>
-                <img onClick={onClose}  src={close} alt="Cerrar" />
+                <img onClick={cerrarVentana}  src={close} alt="Cerrar" />
             </div>
 
             <section className='fechas-header'>

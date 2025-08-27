@@ -4,11 +4,11 @@ import { GrillaHabitaciones } from "../components/seccionHabitaciones/grillaHabi
 
 import { Estadia } from "../components/seccionHabitaciones/menuEstadia/Estadia"
 
-function Habitaciones() {
+function Habitaciones({sethabitacionesReservadas, setcantidadHuespedes}) {
   return (
     <>
       <Banner />
-      <Estadia />
+      <Estadia sethabitacionesReservadas={sethabitacionesReservadas} setcantidadHuespedes={setcantidadHuespedes} />
       <GrillaHabitaciones />
     </>
   )

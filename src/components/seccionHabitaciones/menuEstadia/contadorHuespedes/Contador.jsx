@@ -3,7 +3,7 @@ import menos from '../../../../assets/images/imgHabitaciones/imagenesEstadia/ima
 import mas from '../../../../assets/images/imgHabitaciones/imagenesEstadia/imagenesContador/iconmonstr-plus.png'
 import close from '../../../../assets/images/imgHabitaciones/imagenesEstadia/cerrar.png'
 
-export const Contador = ({ visible2, onClose, onConfirm }) => {
+export const Contador = ({ visible2, cerrarVentana, confirmarSeleccion }) => {
 
 if (!visible2) return null; 
 
@@ -50,14 +50,15 @@ function agregarHabitacion() {
 }
 
 function confirmarHabitaciones() {
-    if (onConfirm) {
-      onConfirm(habitaciones);
+    if (confirmarSeleccion) {
+      confirmarSeleccion(habitaciones);
     }
-    onClose(); 
+    cerrarVentana(); 
   }
 
 return (
     <>
+    
         <div className='filtroBlurr' >
     
             <div className='contenedor-fechas contenedor-contador'>
@@ -70,8 +71,9 @@ return (
                     <strong>
                         <p>Habitaciones y huespedes</p>
                     </strong>
+                    
                     <div className='cerrar'>
-                        <img onClick={() => onClose()}  src={close} alt="Cerrar" />
+                        <img onClick={() => cerrarVentana()}  src={close} alt="Cerrar" />
                     </div>
                     
                 </section>
@@ -118,7 +120,7 @@ return (
                 </div>
                 <div className='botonesFecha'>
                 <input className='btnhover' type="submit" value='Listo' onClick={confirmarHabitaciones} />
-                <input className='btnhover' onClick={() => onClose()} type="button" value="Cancelar"  />
+                <input className='btnhover' onClick={() => cerrarVentana()} type="button" value="Cancelar"  />
             </div>
                 
                 

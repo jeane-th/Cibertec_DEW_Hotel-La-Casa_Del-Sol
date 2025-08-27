@@ -4,13 +4,15 @@ import { Footer } from './components/Footer'
 
 import Home from './pages/Home'
 import Habitaciones from './pages/Habitaciones'
-import Reservar from './pages/Reservar'
+
 import Contacto from './pages/Contacto'
 import Galeria from './pages/Galeria'
+import { useState } from 'react'
 
 function App() {
 
-
+const [habitacionesReservadas, sethabitacionesReservadas] = useState("");
+const [cantidadHuespedes, setcantidadHuespedes] = useState("");
 
   return (
 
@@ -18,9 +20,9 @@ function App() {
       <BarraNavegacion/>
       <Routes>
         <Route path='/' element={<Home />}/>
-        <Route path='/Habitaciones' element={<Habitaciones />} />
+        <Route path='/Habitaciones' element={<Habitaciones sethabitacionesReservadas={sethabitacionesReservadas} setcantidadHuespedes={setcantidadHuespedes} />} />
         <Route path='/Galeria' element={<Galeria />} />
-        <Route path='/Contacto' element={<Contacto />} />
+        <Route path='/Contacto' element={<Contacto habitacionesReservadas={habitacionesReservadas} cantidadHuespedes={cantidadHuespedes} />} />
         <Route path='*' element={<Home />} />
       </Routes>
       <Footer />

@@ -84,22 +84,36 @@ const schema = yup.object().shape({
 
 });
 
-export const Contacto = () => {
+export const Contacto = ({habitacionesReservadas, cantidadHuespedes}) => {
   const { register, handleSubmit, formState: { errors } } = useForm({ resolver: yupResolver(schema), mode: "onChange" })
 
   const onData = (data) => {
     console.log(data)
   }
 
+  
+
   return (
     <>
+    
       <div className='contacto-contenedor'>
         <div className='imagen-contacto'>
           <img className="imagen" src={img1} alt="" />
         </div>
         <form onSubmit={handleSubmit(onData)}>
           <h2>Contactenos</h2>
+          
           <div>
+            <label>Numero Habitaciones<span className='validacion'>*</span> </label>
+            <input
+              type="text" placeholder={habitacionesReservadas}
+              
+            />
+            <label>Cantidad de Huespedes<span className='validacion'>*</span> </label>
+            <input
+              type="text" placeholder={cantidadHuespedes}
+              
+            />
             <label>Nombre <span className='validacion'>*</span> </label>
             <input
               type="text"
