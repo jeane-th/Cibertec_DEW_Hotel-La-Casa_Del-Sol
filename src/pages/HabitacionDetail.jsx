@@ -196,3 +196,4 @@ export const HabitacionDetail = () => {
     </div>
   )
 }
+export default HabitacionDetail;

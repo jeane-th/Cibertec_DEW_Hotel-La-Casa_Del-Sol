@@ -1,39 +1,11 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './Contacto.css'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup';
 import img1 from '../assets/images/Banner1.jpg';
+import img2 from '../assets/images/Banner2.jpg';
+import img3 from '../assets/images/Banner3.jpg';
 
-// Lista de habitaciones (sin imágenes)
-const listaHabitaciones = [
-  {
-    id: 'suite-king',
-    title: 'Suite Cama King',
-    capacidad: 2,
-    desc: 'Experimenta el máximo lujo...',
-    precio: 200
-  },
-  {
-    id: 'simple',
-    title: 'Habitación Standard Simple',
-    precio: 80
-  },
-  {
-    id: 'doble-standard',
-    title: 'Habitación Doble Standard',
-    precio: 120
-  },
-  {
-    id: 'ejecutiva-doble',
-    title: 'Habitación Ejecutiva Doble',
-    precio: 150
-  },
-  {
-    id: 'ejecutiva-king',
-    title: 'Habitación Ejecutiva King',
-    precio: 180
-  }
-];
 
 import * as yup from 'yup';
 const schema = yup.object().shape({
@@ -84,35 +56,51 @@ const schema = yup.object().shape({
 
 });
 
-export const Contacto = ({habitacionesReservadas, cantidadHuespedes}) => {
+export const Contacto = ({ habitacionesReservadas, cantidadHuespedes }) => {
   const { register, handleSubmit, formState: { errors } } = useForm({ resolver: yupResolver(schema), mode: "onChange" })
 
   const onData = (data) => {
     console.log(data)
   }
+  // Cambio de imagenes
+  const [banner, setbanner] = useState(img1);
+  const [numImage, setnumImage] = useState(1); // numero del color
 
-  
+  useEffect(() => {
+    const cambioImagen = setInterval(() => {
+      if (numImage === 1) {
+        setbanner(img2);
+        setnumImage(2);
+        console.log('img2')
+      } else if (numImage === 2) {
+        setbanner(img3);
+        setnumImage(3);
+        console.log('img3')
+      } else {
+        setbanner(img1);
+        setnumImage(1);
+        console.log('img1')
+      }
+    }, 3000);
+   return ()=> clearInterval(cambioImagen); // detener setInterval
+  }, [numImage]);
 
   return (
     <>
-    
       <div className='contacto-contenedor'>
         <div className='imagen-contacto'>
-          <img className="imagen" src={img1} alt="" />
+          <img className="imagen" src={banner} alt="" />
         </div>
         <form onSubmit={handleSubmit(onData)}>
           <h2>Contactenos</h2>
-          
           <div>
             <label>Numero Habitaciones<span className='validacion'></span> </label>
             <input
               type="text" placeholder={habitacionesReservadas}
-              
             />
             <label>Cantidad de Huespedes<span className='validacion'></span> </label>
             <input
               type="text" placeholder={cantidadHuespedes}
-              
             />
             <label>Nombre <span className='validacion'>*</span> </label>
             <input
