@@ -26,13 +26,11 @@ export const BarraNavegacion = () => {
   return (
     <header>
       <div className="barra-superior">
-        {/* Solo renderizamos un mensaje, el que está en el índice actual */}
-
         {mensajesInformativos.map((mensaje, index) => (
           index === mensajeActualIndex && (
             <div key={index} className={mensaje.clase}>
               {mensaje.url ? (
-                <a href={mensaje.url} target="_blank" rel="noopener noreferrer">
+                <a href={mensaje.url} target="_blank">
                   {mensaje.texto}
                 </a>
               ) : (
