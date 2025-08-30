@@ -31,13 +31,13 @@ const schema = yup.object().shape({
   dni: yup
     .string()
     .required("El DNI es obligatorio")
-    .test("solo_numeros", "Solo se permiten números", value => /^\d*$/.test(value))
-    .test("longitud", "El teléfono debe tener 9 dígitos", value => !value || value.length === 8),
+    .matches(/^\d*$/, "Solo se permiten números")
+    .test("longitud", "El DNI debe tener 8 dígitos", value => !value || value.length === 8),
 
   telefono: yup
     .string()
     .required("El teléfono es obligatorio")
-    .test("solo_numeros", "Solo se permiten números", value => /^\d*$/.test(value))
+    .matches(/^\d*$/, "Solo se permiten números")
     .test("longitud", "El teléfono debe tener 9 dígitos", value => !value || value.length === 9),
 
   email: yup
@@ -82,7 +82,7 @@ export const Contacto = ({ habitacionesReservadas, cantidadHuespedes }) => {
         console.log('img1')
       }
     }, 3000);
-   return ()=> clearInterval(cambioImagen); // detener setInterval
+    return () => clearInterval(cambioImagen); // detener setInterval
   }, [numImage]);
 
   return (
