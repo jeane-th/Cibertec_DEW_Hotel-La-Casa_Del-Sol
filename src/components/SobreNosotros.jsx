@@ -1,5 +1,5 @@
-import React from 'react';
-import HotelNosotros from '../assets/images/hotel-nosotros.jpg'
+import React from "react";
+import HotelNosotros from "../assets/images/hotel-nosotros.jpg"
 
 export const SobreNosotros = () => {
   return (
