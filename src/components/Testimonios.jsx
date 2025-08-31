@@ -1,5 +1,8 @@
 import React from "react";
 
+const testimonio01 = "Una estancia maravillosa. El personal fue increíblemente atento y las instalaciones son de primera. ¡Totalmente recomendado!";
+const testimonio02 = "El mejor hotel en el que me he alojado. Las habitaciones son lujosas y la comida del restaurante es exquisita. Volveré sin duda.";
+
 export const Testimonios = () => {
   return (
     <section id="testimonios" className="seccion fondo-claro">
@@ -7,11 +10,11 @@ export const Testimonios = () => {
         <h2 className="titulo-seccion">Lo que dicen nuestros huéspedes</h2>
         <div className="cuadricula-testimonios">
           <div className="tarjeta-testimonio">
-            <p>"Una estancia maravillosa. El personal fue increíblemente atento y las instalaciones son de primera. ¡Totalmente recomendado!"</p>
+            <p>"{testimonio01}"</p>
             <footer className="autor-testimonio">- Juan Pérez</footer>
           </div>
           <div className="tarjeta-testimonio">
-            <p>"El mejor hotel en el que me he alojado. Las habitaciones son lujosas y la comida del restaurante es exquisita. Volveré sin duda."</p>
+            <p>"{testimonio02}"</p>
             <footer className="autor-testimonio">- María García</footer>
           </div>
         </div>
