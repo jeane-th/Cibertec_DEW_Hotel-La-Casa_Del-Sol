@@ -126,6 +126,8 @@ export const Contacto = ({ habitacionesReservadas, cantidadHuespedes }) => {
                   {...register('habitaciones')}
                 />
                 <p className='validacion'>{errors.habitaciones?.message}</p>
+              </div>
+              <div>
                 <label>Cantidad de Huespedes<span className='validacion'>*</span> </label>
                 <input
                   type="text"
@@ -134,6 +136,8 @@ export const Contacto = ({ habitacionesReservadas, cantidadHuespedes }) => {
                   {...register('huespedes')}
                 />
                 <p className='validacion'>{errors.huespedes?.message}</p>
+              </div>
+              <div>
                 <label>Nombre <span className='validacion'>*</span> </label>
                 <input
                   type="text"
