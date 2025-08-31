@@ -8,8 +8,18 @@ import img3 from '../assets/images/Banner3.jpg';
 
 
 import * as yup from 'yup';
+import { ReservaResumenCard } from './ReservaResumenCard';
 const schema = yup.object().shape({
-  // Restricciones
+  // Validaciondes de formulario
+  habitaciones: yup
+    .string()
+    .required("El numero de habitaciones es obligatorio")
+    .matches(/^\d*$/, "Solo se permiten números"),
+
+  huespedes: yup
+    .string()
+    .required("La cantidad de huespedes es obligatoria")
+    .matches(/^\d*$/, "Solo se permiten números"),
 
   nombre: yup
     .string()
@@ -57,10 +67,25 @@ const schema = yup.object().shape({
 });
 
 export const Contacto = ({ habitacionesReservadas, cantidadHuespedes }) => {
-  const { register, handleSubmit, formState: { errors } } = useForm({ resolver: yupResolver(schema), mode: "onChange" })
-
+  const { register, handleSubmit, formState: { errors }, reset } = useForm({ resolver: yupResolver(schema), mode: "onChange" })
+  // estados del formulario
+  const [datosForm, setDatosForm] = useState(null);
   const onData = (data) => {
-    console.log(data)
+    setDatosForm(data);
+    reset(
+      {
+        habitaciones: "",
+        huespedes: "",
+        nombre: "",
+        apellido1: "",
+        apellido2: "",
+        dni: "",
+        telefono: "",
+        email: "",
+        mensaje: "",
+        checkbox: false
+      }
+    );
   }
   // Cambio de imagenes
   const [banner, setbanner] = useState(img1);
@@ -71,15 +96,12 @@ export const Contacto = ({ habitacionesReservadas, cantidadHuespedes }) => {
       if (numImage === 1) {
         setbanner(img2);
         setnumImage(2);
-        console.log('img2')
       } else if (numImage === 2) {
         setbanner(img3);
         setnumImage(3);
-        console.log('img3')
       } else {
         setbanner(img1);
         setnumImage(1);
-        console.log('img1')
       }
     }, 3000);
     return () => clearInterval(cambioImagen); // detener setInterval
@@ -93,87 +115,102 @@ export const Contacto = ({ habitacionesReservadas, cantidadHuespedes }) => {
         </div>
         <form onSubmit={handleSubmit(onData)}>
           <h2>Contactenos</h2>
-          <div>
-            <label>Numero Habitaciones<span className='validacion'></span> </label>
-            <input
-              type="text" placeholder={habitacionesReservadas}
-            />
-            <label>Cantidad de Huespedes<span className='validacion'></span> </label>
-            <input
-              type="text" placeholder={cantidadHuespedes}
-            />
-            <label>Nombre <span className='validacion'>*</span> </label>
-            <input
-              type="text"
-              name="nombre"
-              {...register('nombre')}
-            />
-            <p className='validacion'>{errors.nombre?.message}</p>
+          <div className='formInputs'>
+            <div>
+              <div>
+                <label>Numero Habitaciones<span className='validacion'>*</span> </label>
+                <input
+                  type="text"
+                  name='habitaciones'
+                  defaultValue={habitacionesReservadas}
+                  {...register('habitaciones')}
+                />
+                <p className='validacion'>{errors.habitaciones?.message}</p>
+                <label>Cantidad de Huespedes<span className='validacion'>*</span> </label>
+                <input
+                  type="text"
+                  name='huespedes'
+                  defaultValue={cantidadHuespedes}
+                  {...register('huespedes')}
+                />
+                <p className='validacion'>{errors.huespedes?.message}</p>
+                <label>Nombre <span className='validacion'>*</span> </label>
+                <input
+                  type="text"
+                  name="nombre"
+                  {...register('nombre')}
+                />
+                <p className='validacion'>{errors.nombre?.message}</p>
+              </div>
+              <div>
+                <label>Apellido 1 <span className='validacion'>*</span> </label>
+                <input
+                  type="text"
+                  name="apellido1"
+                  {...register('apellido1')}
+                />
+                <p className='validacion'>{errors.apellido1?.message}</p>
+              </div>
+              <div>
+                <label>Apellido 2 <span className='validacion'></span> </label>
+                <input
+                  type="text"
+                  name="apellido2"
+                  {...register('apellido2')}
+                />
+                <p className='validacion'>{errors.apellido2?.message}</p>
+              </div>
+              <div>
+                <label>DNI <span className='validacion'>*</span> </label>
+                <input
+                  type="text"
+                  name="dni"
+                  {...register('dni')}
+                />
+                <p className='validacion'>{errors.dni?.message}</p>
+              </div>
+            </div>
+            <div>
+              <div>
+                <label>Teléfono <span className='validacion'>*</span> </label>
+                <input
+                  type="text"
+                  name="telefono"
+                  {...register('telefono')}
+                />
+                <p className='validacion'>{errors.telefono?.message}</p>
+              </div>
+              <div>
+                <label>email <span className='validacion'>*</span> </label>
+                <input
+                  type="email"
+                  name="email"
+                  {...register('email')}
+                />
+                <p className='validacion'>{errors.email?.message}</p>
+              </div>
+              <div>
+                <label>Comentarios adicionales</label>
+                <textarea
+                  {...register("mensaje")}
+                ></textarea>
+                <p className='validacion'>{errors.mensaje?.message}</p>
+              </div>
+              <div className='checkbox'>
+                <label className='checkbox'>
+                  <input
+                    type="checkbox"
+                    name='checkbox'
+                    {...register("checkbox")}
+                  />
+                  Deseo que se comuniquen por whatsapp</label>
+                <p className='validacion'>{errors.checkbox?.message}</p>
+              </div>
+              <button className='btnContacto' type="submit">Enviar</button>
+            </div>
           </div>
-          <div>
-            <label>Apellido 1 <span className='validacion'>*</span> </label>
-            <input
-              type="text"
-              name="apellido1"
-              {...register('apellido1')}
-            />
-            <p className='validacion'>{errors.apellido1?.message}</p>
-          </div>
-          <div>
-            <label>Apellido 2 <span className='validacion'></span> </label>
-            <input
-              type="text"
-              name="apellido2"
-              {...register('apellido2')}
-            />
-            <p className='validacion'>{errors.apellido2?.message}</p>
-          </div>
-          <div>
-            <label>DNI <span className='validacion'>*</span> </label>
-            <input
-              type="text"
-              name="dni"
-              {...register('dni')}
-            />
-            <p className='validacion'>{errors.dni?.message}</p>
-          </div>
-          <div>
-            <label>Telefono <span className='validacion'>*</span> </label>
-            <input
-              type="text"
-              name="telefono"
-              {...register('telefono')}
-            />
-            <p className='validacion'>{errors.telefono?.message}</p>
-          </div>
-          <div>
-            <label>email <span className='validacion'>*</span> </label>
-            <input
-              type="email"
-              name="email"
-              {...register('email')}
-            />
-            <p className='validacion'>{errors.email?.message}</p>
-          </div>
-          <div>
-            <label>Comentarios adicionales</label>
-            <textarea
-              {...register("mensaje")}
-            ></textarea>
-            <p className='validacion'>{errors.mensaje?.message}</p>
-          </div>
-          <div className='checkbox'>
-            <label className='checkbox'>
-              <input
-                type="checkbox"
-                name='checkbox'
-                {...register("checkbox")}
-              />
-              Deseo que se comuniquen por whatsapp</label>
-            <p className='validacion'>{errors.checkbox?.message}</p>
-          </div>
-          <button className='btnContacto' type="submit">Enviar</button>
         </form >
+        {datosForm && <ReservaResumenCard datos={datosForm} />}
       </div>
     </>
   );

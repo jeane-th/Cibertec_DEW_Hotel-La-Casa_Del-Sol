@@ -11,7 +11,7 @@
 }
 
 .imagen {
-  width: 700px;
+  width: 500px;
   height: 100%;
   object-fit: cover;
   margin: auto;
@@ -20,14 +20,19 @@
 /* Formulario */
 form {
   background-color: #fff;
-  padding: 30px 40px;
+  padding: 10px 10px;
   border-radius: 12px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-  max-width: 600px;
-  width: 600px;
-  margin: 40px auto;
+  width: 900px;
+  margin: 20px auto;
+  display: flex;
+  flex-direction: column;
 }
-
+.formInputs{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
 form h2 {
   text-align: center;
   margin-bottom: 25px;
@@ -59,6 +64,7 @@ textarea {
   border-radius: 8px;
   font-size: 1rem;
   transition: border 0.3s, box-shadow 0.3s;
+  width: 400px;
 }
 
 input[type="text"]:focus,
@@ -104,7 +110,6 @@ input[type="checkbox"] {
   /* asegura alineación vertical */
 }
 
-
 /* Botón */
 .btnContacto {
   width: 100%;
@@ -117,6 +122,7 @@ input[type="checkbox"] {
   font-weight: 600;
   cursor: pointer;
   transition: background-color 0.3s;
+  margin: 0;
 }
 
 .btnContacto:hover {

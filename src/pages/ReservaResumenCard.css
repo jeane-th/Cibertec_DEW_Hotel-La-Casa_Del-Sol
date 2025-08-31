@@ -1,0 +1,44 @@
+.reservaResumenCard {
+    width: 500px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    padding: 50px;
+    position: absolute;
+    top: 30%;
+    right: 22%;
+    background-color: #fff;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.reservaResumenCard p {
+    font-weight: 700;
+}
+
+.reservaResumenCard span {
+    font-weight: 300;
+}
+
+.cardResumen {
+    margin: 20px;
+}
+
+.button {
+    width: 100px;
+    margin: auto;
+    margin-top: 20px;
+    padding: 12px;
+    background-color: #059669;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    text-align: center;
+}
+
+.button:hover {
+    background-color: #357ab8;
+}
